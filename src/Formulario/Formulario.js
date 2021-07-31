@@ -11,7 +11,6 @@ export default class Formulario extends React.Component {
     }
 
     cambiarDatos = (id, e) => {
-        //Evita el warning por cambiar directa
         const lista = [...this.state.lista];
         lista[id][e.target.name] = e.target.value;
         this.props.manejador(lista, this.nombre);

@@ -1,12 +1,17 @@
 import Formulario from "./Formulario";
+import { estilo } from "../config"
+
+
 import { IconButton, TextField, Container, Button } from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
 import { Delete, Add } from "@material-ui/icons"
 
-export default class Idiomas extends Formulario {
+class Idiomas extends Formulario {
 
     constructor(props) {
         super(props, "Idiomas");
 
+        this.clases = props.classes;
         this.state = {
             lista: [{ ID: "", Idioma: "", Nivel: "", Centro: "" }]
         };
@@ -29,7 +34,6 @@ export default class Idiomas extends Formulario {
                         />
                         <TextField
                             variant="standard"
-                            
                             type="text"
                             label="Idioma"
                             name="Idioma"
@@ -38,7 +42,6 @@ export default class Idiomas extends Formulario {
                         />
                         <TextField
                             variant="standard"
-                            
                             type="text"
                             label="Nivel"
                             name="Nivel"
@@ -47,7 +50,6 @@ export default class Idiomas extends Formulario {
                         />
                         <TextField
                             variant="standard"
-                            
                             type="text"
                             label="Centro"
                             name="Centro"
@@ -70,3 +72,5 @@ export default class Idiomas extends Formulario {
     }
 
 }
+
+export default withStyles(estilo)(Idiomas);

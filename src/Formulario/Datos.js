@@ -1,12 +1,16 @@
 import Formulario from "./Formulario";
+import {estilo} from "../config";
+
 import { IconButton, TextField, Container, Button } from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
 import { Delete, Add } from "@material-ui/icons"
 
-export default class Datos extends Formulario {
+class Datos extends Formulario {
 
     constructor(props) {
         super(props, "Datos");
 
+        this.clases = props.classes;
         this.state = {
             lista: [{ ID: "", Nombre: "", Descripcion: "" }]
         };
@@ -28,7 +32,6 @@ export default class Datos extends Formulario {
                         />
                         <TextField
                             variant="standard"
-                            
                             type="text"
                             label="Nombre"
                             name="Nombre"
@@ -37,7 +40,6 @@ export default class Datos extends Formulario {
                         />
                         <TextField
                             variant="standard"
-                            
                             type="text"
                             label="Descripcion"
                             name="Descripcion"
@@ -60,3 +62,5 @@ export default class Datos extends Formulario {
     }
 
 }
+
+export default withStyles(estilo)(Datos);

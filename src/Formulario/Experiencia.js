@@ -1,12 +1,16 @@
 import Formulario from "./Formulario";
+import { estilo } from "../config";
+
 import { IconButton, TextField, Container, Button } from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
 import { Delete, Add } from "@material-ui/icons"
 
-export default class Experiencia extends Formulario {
+class Experiencia extends Formulario {
 
     constructor(props) {
         super(props, "Experiencia");
 
+        this.clases = props.classes;
         this.state = {
             lista: [{ ID: "", Fecha_inicial: "", Fecha_fin: "", Empresa: "", Funcion: "", Ciudad: "", Link: "" }]
         };
@@ -90,3 +94,5 @@ export default class Experiencia extends Formulario {
     }
 
 }
+
+export default withStyles(estilo)(Experiencia);

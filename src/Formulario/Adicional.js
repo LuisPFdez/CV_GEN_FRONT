@@ -1,15 +1,20 @@
 import Formulario from "./Formulario";
-import { IconButton, TextField, Container, Button } from "@material-ui/core";
-import { Delete, Add } from "@material-ui/icons"
+import { estilo } from "../config";
 
-export default class Adicional extends Formulario {
+import { IconButton, TextField, Container, Button } from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
+import { Delete, Add } from "@material-ui/icons";
+
+class Adicional extends Formulario {
 
     constructor(props) {
         super(props, "Adicional");
 
+        this.clases = props.classes;
         this.state = {
             lista: [{ ID: "", Nombre: "", Descripcion: "" }]
         };
+
     }
 
     render() {
@@ -23,6 +28,7 @@ export default class Adicional extends Formulario {
                             type="text"
                             label="ID"
                             name="ID"
+                            size="small"
                             value={datos.ID}
                             onChange={event => { this.cambiarDatos(id, event) }}
                         />
@@ -60,3 +66,5 @@ export default class Adicional extends Formulario {
     }
 
 }
+
+export default withStyles(estilo)(Adicional);

@@ -1,12 +1,16 @@
 import Formulario from "./Formulario";
+import { estilo } from "../config";
+
 import { IconButton, TextField, Container, Button } from "@material-ui/core";
+import { withStyles } from "@material-ui/core"
 import { Delete, Add } from "@material-ui/icons"
 
-export default class Formacion extends Formulario {
+class Formacion extends Formulario {
 
     constructor(props) {
         super(props, "Formacion");
 
+        this.clases = props.classes;
         this.state = {
             lista: [{ ID: "", Fecha_inicial: "", Fecha_fin: "", Titulo: "", Centro: "", Ciudad: "", Link: "" }]
         };
@@ -23,12 +27,12 @@ export default class Formacion extends Formulario {
                             type="text"
                             label="ID"
                             name="ID"
+                            className={this.clases.datos}
                             value={datos.ID}
                             onChange={event => { this.cambiarDatos(id, event) }}
                         />
                         <TextField
                             variant="standard"
-                            
                             type="text"
                             label="Fecha Inicial"
                             name="Fecha_inicial"
@@ -37,7 +41,6 @@ export default class Formacion extends Formulario {
                         />
                         <TextField
                             variant="standard"
-                            
                             type="text"
                             label="Fecha Final"
                             name="Fecha_fin"
@@ -54,7 +57,6 @@ export default class Formacion extends Formulario {
                         />
                         <TextField
                             variant="standard"
-                            
                             type="text"
                             label="Centro"
                             name="Centro"
@@ -63,7 +65,6 @@ export default class Formacion extends Formulario {
                         />
                         <TextField
                             variant="standard"
-                            
                             type="text"
                             label="Ciudad"
                             name="Ciudad"
@@ -72,7 +73,6 @@ export default class Formacion extends Formulario {
                         />
                         <TextField
                             variant="standard"
-                            
                             type="text"
                             label="Link"
                             name="Link"
@@ -95,3 +95,5 @@ export default class Formacion extends Formulario {
     }
 
 }
+
+export default withStyles(estilo)(Formacion)
